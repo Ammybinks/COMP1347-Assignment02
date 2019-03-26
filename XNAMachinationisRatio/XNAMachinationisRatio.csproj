@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F98613BF-5050-4171-8FA3-64BDA14DF61A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XNAMachinationisRatio</RootNamespace>
+    <AssemblyName>XNAMachinationisRatio</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AI\AIPlayer.cs" />
+    <Compile Include="AI\AISceneGraph.cs" />
+    <Compile Include="AI\AISystem.cs" />
+    <Compile Include="AI\Behaviour\BaseMovementBehaviour.cs" />
+    <Compile Include="AI\Behaviour\PhysicBasedBehaviour.cs" />
+    <Compile Include="AI\IMovementBehaviour.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ComponentContainer.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="GameObjectComponent.cs" />
+    <Compile Include="GameStage.cs" />
+    <Compile Include="I2DCamera.cs" />
+    <Compile Include="I2DScene.cs" />
+    <Compile Include="I3DCamera.cs" />
+    <Compile Include="I3DScene.cs" />
+    <Compile Include="IAIControllable.cs" />
+    <Compile Include="IAIController.cs" />
+    <Compile Include="ICamera.cs" />
+    <Compile Include="IGameObjectComponent.cs" />
+    <Compile Include="IGraphicProperties.cs" />
+    <Compile Include="IPhysicsProperties.cs" />
+    <Compile Include="IScene.cs" />
+    <Compile Include="ISceneListener.cs" />
+    <Compile Include="ISceneRepresentationTrait.cs" />
+    <Compile Include="Physics\BoundingSphere.cs" />
+    <Compile Include="Physics\CollisionManager.cs" />
+    <Compile Include="Physics\Contact.cs" />
+    <Compile Include="Physics\IBoundingVolume.cs" />
+    <Compile Include="Physics\ICollisionListener.cs" />
+    <Compile Include="Physics\IPhysicsActuator.cs" />
+    <Compile Include="Physics\PhysicalBody.cs" />
+    <Compile Include="Physics\PhysicsSceneGraph.cs" />
+    <Compile Include="Physics\PhysicsSystem.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\BaseCamera.cs" />
+    <Compile Include="Rendering\BaseSceneGraph.cs" />
+    <Compile Include="Rendering\CameraFactory.cs" />
+    <Compile Include="Rendering\I2DRenderableObject.cs" />
+    <Compile Include="Rendering\I3DRenderableObject.cs" />
+    <Compile Include="Rendering\IRenderableObject.cs" />
+    <Compile Include="Rendering\ISceneGraph.cs" />
+    <Compile Include="Rendering\RenderableObject.cs" />
+    <Compile Include="Rendering\RenderingSystem.cs" />
+    <Compile Include="Rendering\X2DCamera.cs" />
+    <Compile Include="Rendering\X2DRenderableObject.cs" />
+    <Compile Include="Rendering\X3DCamera.cs" />
+    <Compile Include="Rendering\X3DRenderableObject.cs" />
+    <Compile Include="Resources\AssetLibrary.cs" />
+    <Compile Include="Resources\GenericAsset.cs" />
+    <Compile Include="Resources\ResourceManager.cs" />
+    <Compile Include="Resources\X2DAsset.cs" />
+    <Compile Include="Resources\X3DAsset.cs" />
+    <Compile Include="Scene.cs" />
+    <Compile Include="Systems\IAISystem.cs" />
+    <Compile Include="Systems\IEngineSystem.cs" />
+    <Compile Include="Systems\IPhysicsSystem.cs" />
+    <Compile Include="Systems\IRenderingSystem.cs" />
+    <Compile Include="Systems\IResourceManager.cs" />
+    <Compile Include="Util\ListSceneRepresentation.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\TreeNode.cs" />
+    <Compile Include="X2DScene.cs" />
+    <Compile Include="X2DToken.cs" />
+    <Compile Include="X3DScene.cs" />
+    <Compile Include="X3DToken.cs" />
+    <Compile Include="XNAGame.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

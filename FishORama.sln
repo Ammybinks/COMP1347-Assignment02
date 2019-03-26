@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishORama", "FishORama\FishORama.csproj", "{0E5BE24A-C5B8-475A-A080-9A686B818C05}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F98613BF-5050-4171-8FA3-64BDA14DF61A} = {F98613BF-5050-4171-8FA3-64BDA14DF61A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAMachinationisRatio", "XNAMachinationisRatio\XNAMachinationisRatio.csproj", "{F98613BF-5050-4171-8FA3-64BDA14DF61A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E5BE24A-C5B8-475A-A080-9A686B818C05}.Debug|x86.ActiveCfg = Debug|x86
+		{0E5BE24A-C5B8-475A-A080-9A686B818C05}.Debug|x86.Build.0 = Debug|x86
+		{0E5BE24A-C5B8-475A-A080-9A686B818C05}.Release|x86.ActiveCfg = Release|x86
+		{0E5BE24A-C5B8-475A-A080-9A686B818C05}.Release|x86.Build.0 = Release|x86
+		{F98613BF-5050-4171-8FA3-64BDA14DF61A}.Debug|x86.ActiveCfg = Debug|x86
+		{F98613BF-5050-4171-8FA3-64BDA14DF61A}.Debug|x86.Build.0 = Debug|x86
+		{F98613BF-5050-4171-8FA3-64BDA14DF61A}.Release|x86.ActiveCfg = Release|x86
+		{F98613BF-5050-4171-8FA3-64BDA14DF61A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
