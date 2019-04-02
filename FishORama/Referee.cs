@@ -18,6 +18,8 @@ namespace FishORama
 
         int activePlayer = -1;
 
+        int winningScore = 5;
+
         public Referee(AquariumToken aquarium, Random rand, Team[] teams, int numPlayers)
         {
             this.aquarium = aquarium;
@@ -54,7 +56,15 @@ namespace FishORama
                 {
                     teams[i].StopSwimming(activePlayer);
 
-                    Console.WriteLine($"Team {i}: {teams[i].Score}");
+                    Console.WriteLine($"Team {i + 1}: {teams[i].Score}");
+
+                    if(teams[i].Score >= winningScore)
+                    {
+                        Console.WriteLine($"Team {i + 1} wins!");
+
+                        teams[i].Win();
+                        aquarium.End();
+                    }
                 }
 
                 activePlayer = -1;

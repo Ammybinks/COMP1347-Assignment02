@@ -38,5 +38,13 @@ namespace FishORama
                 score++;
             }
         }
+
+        public void Win()
+        {
+            for(int i = 0; i < fish.Length; i++)
+            {
+                fish[i].Win();
+            }
+        }
     }
 }

@@ -26,19 +26,22 @@ namespace FishORama
 
         private float facingDirectionX;         // Direction the fish is facing (1: right; -1: left).
 
-        private float speed; // Speed the fish moves regularly
-        private float baseSpeed = 3; // Default speed the fish moves, before any modifiers
+        private float speed; // Stores temporary speed value that the fish will move with every update
+        private float baseSpeed = 5; // Default speed the fish moves, before any modifiers
         private int speedModifier = 10; // Amount the speed can vary by, in number of 0.1 intervals
+                                        // Because of the way Random.Next() works, speed is first randomised between whole numbers before being divided into smaller increments
+        private float speedIncrease = 0.2f; // Amount the speed accelerates by each update
 
         private bool firstUpdate = true;
-        private bool isMoving; // Tracks whether the fish is currently moving towards the chicken leg
-        private bool hasMoved; // Tracks whether the fish is currently moving back to its original position
+        private bool swimming; // Tracks whether the fish is currently swimming off the edge of the screen
+        private bool seeking; // Tracks whether the fish is currently moving towards the chicken leg
+        private bool returning; // Tracks whether the fish is currently moving back to its original position
 
         private bool full; // Stores whether the fish has eaten a chicken leg
         
-        private float currentSin = 0;
-        private float sinIncrement = 0.05f;
-        private float sinIntensity = 1;
+        private float currentSin = 0; // Current progression of the sin pattern
+        private float sinIncrement = 0.05f; // How much the pattern progresses each update
+        private float sinIntensity = 1; // Intensity of the effect, determining how large the circle of displacement is
 
         private float radius; // Size of the circle surrounding the piranha, checked against for collisions
 
@@ -68,7 +71,7 @@ namespace FishORama
         {
             get
             {
-                if (isMoving || hasMoved)
+                if (seeking || returning)
                 {
                     return true;
                 }
@@ -90,7 +93,7 @@ namespace FishORama
         public PiranhaMind(X2DToken pToken)
         {
             this.Possess(pToken);       // Possess token.
-            facingDirectionX = 1;       // Current direction the fish is facing.            
+            facingDirectionX = 1;       // Current direction the fish is facing.         
         }
 
         #endregion
@@ -105,8 +108,11 @@ namespace FishORama
         {
             if(firstUpdate)
             {
+                currentSin += rand.Next(0, 101);
+                currentSin /= 100;
+
                 // Face the fish towards the center of the screen
-                if((PossessedToken as PiranhaToken).TeamNum == 1)
+                if ((PossessedToken as PiranhaToken).TeamNum == 1)
                 {
                     facingDirectionX = -1;
                 }
@@ -123,15 +129,21 @@ namespace FishORama
 
             tokenPosition = PossessedToken.Position; // Store the current position of the bubble
 
+            if(swimming)
+            {
+                tokenPosition.X += speed;
+
+                speed += speedIncrease;
+            }
             // If the chicken leg is in the aquarium
-            if(isMoving)
+            else if(seeking)
             {
                 // Get direction and distance to swim, based on the fish's speed
                 Vector2 direction = new Vector2(chickenLegPosition.X - tokenPosition.X, chickenLegPosition.Y - tokenPosition.Y);
 
                 if (direction.Length() <= radius) // If token has reached the chicken leg
                 {
-                    if(aquarium.ChickenLeg != null)
+                    if (aquarium.ChickenLeg != null)
                     {
                         aquarium.RemoveChickenLeg();
 
@@ -146,7 +158,7 @@ namespace FishORama
                     tokenPosition += new Vector3(direction.X, direction.Y, 0);
                 }
             }
-            else if(hasMoved)
+            else if(returning)
             {
                 // Get direction and distance to swim, based on the fish's speed
                 Vector2 direction = new Vector2(originalPosition.X - tokenPosition.X, originalPosition.Y - tokenPosition.Y);
@@ -159,7 +171,7 @@ namespace FishORama
 
                     PossessedToken.Orientation = new Vector3(facingDirectionX, PossessedToken.Orientation.Y, PossessedToken.Orientation.Z);
 
-                    hasMoved = false;
+                    returning = false;
                 }
                 else
                 {
@@ -186,11 +198,11 @@ namespace FishORama
             // Store the position of the chicken leg
             chickenLegPosition = aquarium.ChickenLeg.Position;
 
-            isMoving = true;
+            seeking = true;
 
             originalPosition = tokenPosition;
 
-            speed = baseSpeed + ((rand.Next(0, speedModifier) * 0.1f));
+            speed = baseSpeed + ((rand.Next(-speedModifier, speedModifier + 1) * 0.1f));
         }
 
         public bool StartReturning()
@@ -199,12 +211,36 @@ namespace FishORama
 
             PossessedToken.Orientation = new Vector3(facingDirectionX, PossessedToken.Orientation.Y, PossessedToken.Orientation.Z);
 
-            isMoving = false;
-            hasMoved = true;
+            seeking = false;
+            returning = true;
 
             bool temp = full;
             full = false;
             return temp;
+        }
+
+        public void Win()
+        {
+            speed = baseSpeed;
+            // Face the fish towards the center of the screen
+            if ((PossessedToken as PiranhaToken).TeamNum == 1)
+            {
+                facingDirectionX = -1;
+
+                PossessedToken.Orientation = new Vector3(facingDirectionX, PossessedToken.Orientation.Y, PossessedToken.Orientation.Z);
+
+                speed *= -1;
+            }
+            else
+            {
+                facingDirectionX = 1;
+
+                PossessedToken.Orientation = new Vector3(facingDirectionX, PossessedToken.Orientation.Y, PossessedToken.Orientation.Z);
+
+                speedIncrease *= -1;
+            }
+
+            swimming = true;
         }
     }
 }

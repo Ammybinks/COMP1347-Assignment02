@@ -16,7 +16,7 @@ namespace FishORama
         private Kernel mKernel;             
         
         // Reference to the mind of the aquarium.
-        private AquariumMind mMind;         
+        private AquariumMind mind;         
         
         /*
          * Attributes of the aquarium.
@@ -89,7 +89,7 @@ namespace FishORama
             mHeight = pHeight;      // Height of the aquarium.
             mWidth = pWidth;        // Width of the aquarium.
 
-            mMind.Rand = rand;
+            mind.Rand = rand;
         }
 
         #endregion
@@ -126,14 +126,14 @@ namespace FishORama
              * a link which is not visible to the programmer (but it there!)
              * 
              * In this case, instances of the class OrangeFishToken can enact a simple swimming
-             * behavior. The behavior is implemented through the class SimpleSwimMind.
+             * behavior. The behavior is implemented through the class SimpleSwimind.
              */
 
             AquariumMind myMind = new AquariumMind(this);   // Create mind, implicitly associating it to the token.
 
 
-            mMind = myMind;         // Store explicit reference to mind being used.
-            mMind.Aquarium = this;  // Provide to mind explicit reference to Aquarium.
+            mind = myMind;         // Store explicit reference to mind being used.
+            mind.Aquarium = this;  // Provide to mind explicit reference to Aquarium.
         }
 
         /// <summary>
@@ -182,6 +182,11 @@ namespace FishORama
                 this.mKernel.Scene.Remove(mChickenLeg);
                 mChickenLeg = null;
             }
+        }
+
+        public void End()
+        {
+            mind.GameOver = true;
         }
 
         #endregion

@@ -21,6 +21,8 @@ namespace FishORama
 
         private Random rand; // Stores the random number generator passed from the kernel
 
+        private bool gameOver;
+
         #endregion
 
         #region Properties
@@ -36,6 +38,11 @@ namespace FishORama
         public Random Rand
         {
             set { rand = value; }
+        }
+
+        public bool GameOver
+        {
+            set { gameOver = value; }
         }
 
         #endregion
@@ -78,9 +85,12 @@ namespace FishORama
         /// <param name="pGameTime">Game time</param>
         public override void Update(ref GameTime pGameTime)
         {
-            if(rand.Next(0, 240) == 0)
+            if(!gameOver)
             {
-                PlaceLeg();
+                if (rand.Next(0, 60) == 0)
+                {
+                    PlaceLeg();
+                }
             }
         }
 
@@ -90,7 +100,7 @@ namespace FishORama
             {
 
                 // Position the leg in the center of the screen
-                Vector3 legPos = new Vector3(0, 0, 3);
+                Vector3 legPos = new Vector3(rand.Next(-50, 51), rand.Next(-200, 201), 3);
 
                 // Create and insert chicken leg in the scene.
                 mAquarium.ChickenLeg = new ChickenLegToken("ChickenLeg");

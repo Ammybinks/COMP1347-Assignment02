@@ -121,6 +121,11 @@ namespace FishORama
             return mind.StartReturning();
         }
 
+        public void Win()
+        {
+            mind.Win();
+        }
+
         #endregion
 
     }
