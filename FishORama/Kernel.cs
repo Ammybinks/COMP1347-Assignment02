@@ -12,51 +12,6 @@ using Microsoft.Xna.Framework.Media;
 using XNAMachinationisRatio;                // Required to use the XNA Machinationis Ratio general features.
 using XNAMachinationisRatio.Resource;       // Required to use the MonoGame Machinationis Ratio resource management features.
 
-/* LERNING PILL: XNAMachinationisRatio Engine
- * XNAMachinationisRatio is an engine that allows implementing
- * simulations and games based on MonoGame, simplifying the use of MonoGame
- * and adding features not directly available in MonoGame.
- * XNAMachinationisRatio is a work in progress.
- * The engine works "under the hood", taking care of many features
- * of an interactive simulation automatically, thus minimizing
- * the amount of code that developers have to write.
- * 
- * In order to use the engine, the application main class (Kernel, in the
- * case of FishO'Rama) creates, initializes and stores
- * an instance of class Engine in one of its data members.
- * 
- * The classes comprised in the engine and the related functionalities
- * can be accessed from a new MonoGame project, by:
- * 1) Creating a project reference to the XNAMachinationisRatio project (right-click
- * on your project, select 'Add Reference..." and then select the XNAMachinationisRatio
- * either through the 'Projects' or the 'Browse' tab).
- * 2) Adding appropriate 'using' statements to the source code files from which
- * the XNA Machinationis Ratio classes must be used.
- */
-
-/* SPECIAL THANKS TO OUR SINGAPORE ARTIST CHUCK FOR ALL HIS FINE ARTWORK AND ADDING NEW LIFE TO THE ORANGE FISH! */
-
-/* LEARNING PILL: virtual world space and graphics in FishORama
- * In the Machinationis Ratio engine every object has graphic a position in the
- * virtual world expressed through a 3D vector (represented via a Vector3 object).
- * In 2D simulations the first coordinate of the vector is the horizontal (X)
- * position, the second coordinate (Y) represents the vertical position, and 
- * the third coordinate (Z) represents the depth. All simulation features are
- * based on world coordinates.
- * 
- * At any time, a portion of the scene is visible through a camera object (in FishO'Rama 
- * this is created, initialized and referenced through the Kernel class). For the purpose
- * of visualization, coordinates may also be expressed relative to the camera
- * origin (i.e. the center of the camera). In FishO'Rama the camera is centered on the
- * origin of the world, which makes camera coordinates coinciding with world coordinates.
- * This greatly simplifies all the operations.
- * 
- * The third coordinate of the world position of an object represents the depth, i.e.
- * how close an object is to the camera. This defines which objects are in front of others 
- * (for instance, an object with Z=3 will always be drawn in front of an object with
- * Z=2).
- */
-
 namespace FishORama
 {
     /// <summary>
@@ -128,24 +83,7 @@ namespace FishORama
         {
             AssetLibrary lib = AssetLibrary.CreateAnEmptyLibrary();             // New asset library.
             X2DAsset A = null;                                                  // Temporary variable used to create graphic assets.
-
-            /* LEARNING PILL: Creation of new graphic assets with XNA Machinationis ratio
-             * Tokens with a visual representation must have an associated visual asset.
-             * In the XNA Machinationis Ratio engine, graphic assets are created using the
-             * class X2DAsset, based on images imported in the MonoGame contents pipeline.
-             * After creation assets are imported in the simulation assets library.
-             * Assets are created specifying:
-             * - ID of the asset and ID of MonoGame resource in which the asset is contained (useful to support spritesheets).
-             * - The local origin of the asset (in this case, the center of the image). It will be used to
-             *   position and move it in the scene.
-             * - The position of the asset in the MonoGame resource (from top-left corner of the image).
-             * - The width of the asset.
-             * - The height of the asset.
-             * 
-             * NOTE: all the required assets have already been loaded in the solution,
-             * and are available to create graphic library assets using their assigned ID.
-             */
-
+            
             // Create a new graphic asset  for the aquarium visuals using class X2DAsset.
             A = new X2DAsset("AquariumVisuals", "AquariumBackground"). 
                 UVOriginAt(400, 300).
@@ -235,12 +173,17 @@ namespace FishORama
             PiranhaToken piranha;
             string fishName = "Piranha";
 
+            // Create teams array to hold each team
             Team[] teams = new Team[2];
 
+            // Initialise Fish
+            // For each team
             for(int i = 0; i < teams.Length; i++)
             {
+                // Create fish array to hold each fish in the team
                 PiranhaToken[] fish = new PiranhaToken[3];
 
+                // For each fish in the team
                 for(int o = 0; o < fish.Length; o++)
                 {
                     piranha = new PiranhaToken(fishName, aquarium, rand, o + 1, i + 1);
@@ -253,10 +196,10 @@ namespace FishORama
                     tokenPos.Y -= 150 * o;
 
                     mScene.Place(piranha, tokenPos);
-
+                    
                     fish[o] = piranha;
                 }
-
+                
                 teams[i] = new Team(fish);
             }
 

@@ -123,3 +123,28 @@ D:\Users\Nye Blythe\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio
 D:\Users\Nye Blythe\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.csprojResolveAssemblyReference.cache
 D:\Users\Nye Blythe\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.exe
 D:\Users\Nye Blythe\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.pdb
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\XNAMachinationisRatio.exe
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\XNAMachinationisRatio.pdb
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\MonoGame.Framework.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.XAudio2.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct3D11.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.DXGI.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct2D1.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.XInput.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.RawInput.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct3D9.dll
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\MonoGame.Framework.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.XAudio2.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct3D11.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.DXGI.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct2D1.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.XInput.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.RawInput.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\bin\Windows\Debug\SharpDX.Direct3D9.xml
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.csprojResolveAssemblyReference.cache
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.exe
+E:\Users\Ammybinks\Documents\GitHub\COMP1347-Assignment02\XNAMachinationisRatio\obj\x86\Debug\XNAMachinationisRatio.pdb

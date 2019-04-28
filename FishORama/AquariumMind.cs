@@ -85,8 +85,10 @@ namespace FishORama
         /// <param name="pGameTime">Game time</param>
         public override void Update(ref GameTime pGameTime)
         {
+            // If the game is currently running
             if(!gameOver)
             {
+                // Randomly place the chicken leg on the screen
                 if (rand.Next(0, 60) == 0)
                 {
                     PlaceLeg();
@@ -94,6 +96,9 @@ namespace FishORama
             }
         }
 
+        /// <summary>
+        /// Place a chicken leg randomly in the center of the screen if there isn't one there already
+        /// </summary>
         private void PlaceLeg()
         {
             if (mAquarium.ChickenLeg == null)
